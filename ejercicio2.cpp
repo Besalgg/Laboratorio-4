@@ -2,41 +2,24 @@
 using namespace std;
 
 int main() {
-    int opcion;
-    cout << "Menu de areas: " << endl;
-    cout << "1. Circulo " << endl;
-    cout << "2. Cuadrado " << endl;
-    cout << "3. Triangulo " << endl;
-    cout << "Ingrese una opcion: ";
-    cin >> opcion;
+    double MontoOriginal, MontoFinal, descuento = 0;
 
-    switch (opcion) {
-        case 1: {
-            double radio;
-            cout << "Ingrese el radio: ";
-            cin >> radio;
-            cout << "El area del circulo es: " << 3.1416 * radio * radio << endl;
-            break;
-        }
-        case 2: {
-            double lado;
-            cout << "Ingrese el lado: ";
-            cin >> lado;
-            cout << "El area del cuadrado es: " << lado * lado << endl;
-            break;
-        }
-        case 3: {
-            double base, altura;
-            cout << "Ingrese la base: ";
-            cin >> base;
-            cout << "Ingrese la altura: ";
-            cin >> altura;
-            cout << "El area del triangulo es: " << (base * altura) / 2 << endl;
-            break;
-        }
-        default:
-            cout << "Opcion no valida." << endl;
+    cout << "Ingresa el monto de la compra ($): ";
+    cin >> MontoOriginal;
+
+    if (MontoOriginal > 200) {
+        descuento = 0.2;
+        cout << "Se aplico un veinte porciento de descuento. " << endl;
     }
+    else if (MontoOriginal > 100) {
+        descuento = 0.1;
+        cout << "Se aplico un diez porciento de descuento. " << endl;
+    }
+    else {
+        cout << "No aplica descuento para esta compra. " << endl; 
+    }
+    MontoFinal = MontoOriginal - (MontoOriginal * descuento);
+    cout << "El total a pagar es: $ " << MontoFinal << endl;
 
     return 0;
 }
